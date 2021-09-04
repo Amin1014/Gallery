@@ -23,3 +23,11 @@ class Category(models.Model):
             return to_update
         except Category.DoesNotExist:
             print('Category you specified does not exist')
+
+#image model
+class Images(models.Model):
+    image_link = models.ImageField(upload_to='images/')
+    title = models.CharField(max_length=80)
+    description = models.TextField()
+    category=models.ForeignKey(Category, on_delete=models.CASCADE)
+    location = models.ForeignKey('Locations', on_delete=models.CASCADE, default=1)
