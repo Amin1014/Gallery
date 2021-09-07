@@ -1,0 +1,126 @@
+{% load bootstrap4 %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Gallery </title>
+
+    <!--  -->
+    {% block styles %} {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    
+    {% endblock %}
+</head>
+
+<body>
+  
+  {% include 'navbar.html' %}
+
+    <div class="wrapper">
+        <div class="left"></div>
+        <div class="right"></div>
+
+        <div class="content">
+          <div class="img-wrapper">
+            <div class="karina">
+              <img src="{% static 'img/landing.jpeg'%}" class="img-responsive" alt="Image">
+            </div>
+          </div>
+    
+          <div class="info">
+            <ul>
+              <li>Gallery.com</li>
+              <li>@gallery.Ke</li>
+              <li>Gallery.com</li>
+              <li><i class="fa fa-share-alt"></i></li>
+            </ul>
+          </div>
+    
+          <div class="text">
+            <h1>Gallery Kenya</h1>
+            <p>Art.Creativity</p>
+          </div>
+    
+          <!-- <div class="name">karina tes</div> -->
+    
+          <div class="bottomnav">
+            <ul>
+              <li>Artists</li>
+              <li>Images</li>
+              <li>contact</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+    
+
+    <!--  -->
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+
+      TweenMax.to('.left', 2, {
+        delay: .8,
+        width: '50%',
+        ease: Power2.easeInOut
+      })
+  
+      TweenMax.to('.right', 2, {
+        delay: .6,
+        width: '50%',
+        ease: Power3.easeInOut
+      })
+  
+      TweenMax.from('.nav', 2, {
+        delay: .8,
+        opacity: 0,
+        ease: Expo.easeInOut
+      })
+  
+      TweenMax.from('.text h1', 2, {
+        delay: .6,
+        x: 1000,
+        ease: Circ.easeInOut
+      })
+  
+      TweenMax.from('.text p', 2, {
+        delay: .7,
+        x: 1000,
+        ease: Circ.easeInOut
+      })
+  
+      TweenMax.to('.karina', 2, {
+        delay: 1.5,
+        width: '1000px',
+        ease: Power2.easeInOut
+      })
+  
+      TweenMax.staggerFrom('.bottomnav ul li', 2, {
+        delay: 1,
+        x: 1000,
+        ease: Circ.easeInOut
+      }, 0.08)
+  
+      TweenMax.from('.info', 2, {
+        delay: 1.5,
+        y: 100,
+        ease: Circ.easeInOut
+      })
+  
+      TweenMax.from('.name', 2, {
+        delay: 1.5,
+        x: -600,
+        ease: Circ.easeInOut
+      })
+     </script>
+    {% bootstrap_javascript %}
+     {% endblock %}
+</body>
+
+</html> 
